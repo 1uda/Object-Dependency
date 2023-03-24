@@ -41,4 +41,46 @@ public class ManagerTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
+    @Test
+    public void OverLimitTest() {
+        PosterManager manager = new PosterManager();
+
+        manager.add("Film I");
+        manager.add("Film II");
+        manager.add("Film III");
+        manager.add("Film IV");
+        manager.add("Film V");
+        manager.add("Film VI");
+        manager.add("Film VII");
+        manager.add("Film VIII");
+        manager.add("Film IX");
+        manager.add("Film X");
+        manager.add("Film XI");
+
+        String[] expected = {"Film XI", "Film X", "Film IX", "Film VIII", "Film VII", "Film VI", "Film V", "Film IV", "Film III", "Film II"};
+        String[] actual = manager.findLast();
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+    @Test
+    public void limitTest() {
+        PosterManager manager = new PosterManager();
+
+        manager.add("Film I");
+        manager.add("Film II");
+        manager.add("Film III");
+        manager.add("Film IV");
+        manager.add("Film V");
+        manager.add("Film VI");
+        manager.add("Film VII");
+        manager.add("Film VIII");
+        manager.add("Film IX");
+        manager.add("Film X");
+
+        String[] expected = {"Film X", "Film IX", "Film VIII", "Film VII", "Film VI", "Film V", "Film IV", "Film III", "Film II", "Film I"};
+        String[] actual = manager.findLast();
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+
 }
